@@ -1,0 +1,279 @@
+@baseUrl = http://localhost:3000
+@ts = {{$timestamp}}
+
+### Registro de usuario
+POST {{baseUrl}}/api/user/register
+Content-Type: application/json
+
+{
+  "username": "tester{{ts}}",
+  "email": "tester{{ts}}@example.com",
+  "password": "Secret123!"
+}
+
+### Login (captura token para Cookie)
+# @name login
+POST {{baseUrl}}/api/user/login
+Content-Type: application/json
+
+{
+  "email": "tester{{ts}}@example.com",
+  "password": "Secret123!"
+}
+
+### Crear producto 01
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 01",
+  "precio": 10.5,
+  "stock": 100,
+  "unidadMedida": "UND"
+}
+
+### Crear producto 02
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 02",
+  "precio": 12.0,
+  "stock": 90,
+  "unidadMedida": "KG"
+}
+
+### Crear producto 03
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 03",
+  "precio": 8.75,
+  "stock": 80,
+  "unidadMedida": "LB"
+}
+
+### Crear producto 04
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 04",
+  "precio": 15.0,
+  "stock": 70,
+  "unidadMedida": "UND"
+}
+
+### Crear producto 05
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 05",
+  "precio": 20.99,
+  "stock": 60,
+  "unidadMedida": "KG"
+}
+
+### Crear producto 06
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 06",
+  "precio": 5.25,
+  "stock": 50,
+  "unidadMedida": "LB"
+}
+
+### Crear producto 07
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 07",
+  "precio": 7.15,
+  "stock": 40,
+  "unidadMedida": "UND"
+}
+
+### Crear producto 08
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 08",
+  "precio": 11.1,
+  "stock": 30,
+  "unidadMedida": "KG"
+}
+
+### Crear producto 09
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 09",
+  "precio": 9.99,
+  "stock": 20,
+  "unidadMedida": "LB"
+}
+
+### Crear producto 10
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 10",
+  "precio": 13.49,
+  "stock": 75,
+  "unidadMedida": "UND"
+}
+
+### Crear producto 11
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 11",
+  "precio": 6.49,
+  "stock": 65,
+  "unidadMedida": "KG"
+}
+
+### Crear producto 12
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 12",
+  "precio": 18.2,
+  "stock": 55,
+  "unidadMedida": "LB"
+}
+
+### Crear producto 13
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 13",
+  "precio": 14.0,
+  "stock": 45,
+  "unidadMedida": "UND"
+}
+
+### Crear producto 14
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 14",
+  "precio": 3.99,
+  "stock": 35,
+  "unidadMedida": "KG"
+}
+
+### Crear producto 15
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 15",
+  "precio": 22.0,
+  "stock": 25,
+  "unidadMedida": "LB"
+}
+
+### Crear producto 16
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 16",
+  "precio": 4.5,
+  "stock": 15,
+  "unidadMedida": "UND"
+}
+
+### Crear producto 17
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 17",
+  "precio": 16.75,
+  "stock": 85,
+  "unidadMedida": "KG"
+}
+
+### Crear producto 18
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 18",
+  "precio": 19.95,
+  "stock": 95,
+  "unidadMedida": "LB"
+}
+
+### Crear producto 19
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 19",
+  "precio": 2.49,
+  "stock": 110,
+  "unidadMedida": "UND"
+}
+
+### Crear producto 20
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 20",
+  "precio": 12.75,
+  "stock": 120,
+  "unidadMedida": "KG"
+}
+
+### Crear producto 21
+POST {{baseUrl}}/api/product
+Content-Type: application/json
+Cookie: token={{login.response.body.token}}
+
+{
+  "nombre": "Producto 21",
+  "precio": 17.3,
+  "stock": 130,
+  "unidadMedida": "LB"
+}
+
+### Ver todos los productos (paginado)
+GET {{baseUrl}}/api/product?page=1
+Cookie: token={{login.response.body.token}}
+

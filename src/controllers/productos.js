@@ -5,14 +5,33 @@ const prisma = new PrismaClient();
 
 export const getAllProducts = async (req = request, res = response) => {
   try {
+    const page = Number(req.query.page || 1);
+    const limit = 10;
     const userId = req.user.id;
-    const products = await prisma.producto.findMany({
-      where: { userId: userId },
-    });
+    const [products, total] = await Promise.all([
+      prisma.producto.findMany({
+        where: { userId: userId },
+        skip: (page - 1) * limit,
+        take: limit,
+        orderBy: {
+          nombre: "asc",
+        },
+      }),
+      prisma.producto.count({
+        where: { userId: userId },
+      }),
+    ]);
     if (!products) {
       return res.status(404).json({ message: "No hay productos" });
     }
-    return res.status(200).json(products);
+    const totalPages = Math.ceil(total / limit);
+    return res.json({
+      page,
+      limit,
+      total,
+      totalPages,
+      data: products,
+    });
   } catch (error) {
     return res.status(500).json({ message: "Error al obtener los productos" });
   }
@@ -27,7 +46,7 @@ export const getProduct = async (req = request, res = response) => {
     if (!product) {
       return res.status(404).json({ message: "el producto no existe" });
     }
-    return res.status(200).json(product);
+    return res.json(product);
   } catch (error) {
     return res.status(500).json({ message: "Error al obtener el producto" });
   }
